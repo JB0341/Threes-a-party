@@ -25,13 +25,22 @@
       <button id="btn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
     </div>
     <!-- Todo: Create a modal with a form to add tasks -->
-        <dialog class="modal" id="modal">
-          <h2>New Task</h2>
-          <form class="form" method="dialog">
-            <label>Title <input type="text"></input></label>
-            <label>Description <input type="text"></input></label>
-          </form>
-          
+    <div class='modal fade' id='formModal' tabindex='-1' aria-labelledby='formModalLabel' aria-hidden='true'>
+      <div class='modal-dialog'> 
+        <div class="modal-content">
+          <div class='modal-header'>
+            <h1 class="modal-title fs-5" id="formModalLabel">Add Task</h1>
+
+            <form id="task-form">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Task Title<input id="task-name" type="text" class="form-control"/></li>
+                <li class="list-group-item">Task Due Date
+                  <input autocomplete="off" type="text" class="form-control mb-3" id="taskDueDate"/></li>
+                <li class="list-group-item">Task Description<input id="task-type" type="text" class="form-control"/></li>
+              </ul>
+              <div class="modal-footer text-center">
+                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+              </div>
         </div>
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
