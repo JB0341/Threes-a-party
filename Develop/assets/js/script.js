@@ -1,6 +1,8 @@
 // Retrieve tasks and nextId from localStorage
 let taskList = JSON.parse(localStorage.getItem("tasks"));
 let nextId = JSON.parse(localStorage.getItem("nextId"));
+const taskBtn = document.querySelector('#btn');
+const modal = document.querySelector('#modal');
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
@@ -18,9 +20,10 @@ function renderTaskList() {
 }
 
 // Todo: create a function to handle adding a new task
-function handleAddTask(event){
+taskBtn.click( function (event) {
+    modal.showModal();
 
-}
+})
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
