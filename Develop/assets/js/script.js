@@ -42,7 +42,11 @@ function createTaskCard(task) {
 }
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
+    if (!taskList) {
+        taskList = []
+    }
 
+    return taskList;
 }
 
 // Todo: create a function to handle adding a new task
@@ -64,6 +68,7 @@ function handleDrop(event, ui) {
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
+    renderTaskList
     printTaskData();
     $('#taskDueDate').datepicker({
         changeMonth: true,
