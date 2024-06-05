@@ -28,20 +28,24 @@
     <div class='modal fade' id='formModal' tabindex='-1' aria-labelledby='formModalLabel' aria-hidden='true'>
       <div class='modal-dialog'>
         <div class="modal-content">
-          <div class='modal-header'>
+          <div class="modal-header">
             <h1 class="modal-title fs-5" id="formModalLabel">Add Task</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             <form id="task-form">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Task Title<input id="task-title" type="text" class="form-control" /></li>
-                <li class="list-group-item">Task Due Date
-                  <input autocomplete="off" type="text" class="form-control mb-3" id="task-due-date" />
-                </li>
-                <li class="list-group-item">Task Description<input id="task-description" type="text" class="form-control" />
-                </li>
-              </ul>
+              <div class="mb-3">
+                <label for="title" class="col-form-label">Title:</label>
+                <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
+                <label for="dueDate" class="col-form-label">Due Date:</label>
+                <input type="text" class="forom-control" id="dueDate" name="DueDate">
+              </div>
+              <div class="mb-3">
+                <label for="description" class="col-form-label">Description:</label>
+                <input type="text" class="form-control" id="description" name="description">
+              </div>
               <div class="modal-footer text-center">
-                <button id="add-task" type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add
-                  Task</button>
+                <button type="button" class="btn btn-primary">Add Task</button>
               </div>
           </div>
         </div>

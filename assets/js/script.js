@@ -1,6 +1,6 @@
 // Retrieve tasks and nextId from localStorage
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
-let nextId = JSON.parse(localStorage.getItem("nextId"));
+let nextId = JSON.parse(localStorage.getItem("nextId")) ?? 0;
 const taskDisplayEl = $('#task-display');
 const taskFormEl = $('#task-form');
 const taskTitleInput = $('#task-title');
@@ -18,28 +18,22 @@ function generateTaskId() {
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-    const taskCard = $('<div>')
-        .addClass('card task-card draggable my-3')
-        .attr('data-task-id', task.id);
-    const cardHeader = $('<div>').addClass('card-header h4').text(task.title);
-    const cardBody = $('<div>').addClass('card-body');
-    const cardDescription = $('<p>').addClass('card-text').text(task.description);
-    const cardDueDate = $('<p>').addClass('card-text').text(task.date);
+    const taskCard = $('<div class="task card mb-3">');
+    const titleEl = $('<h3>').text(task.title);
     const cardDeleteBtn = $('<button>')
         .addClass('btn btn-danger delete')
         .text('Delete')
         .attr('data-task-id', task.id);
     cardDeleteBtn.on('click', handleDeleteTask);
-    
-        const today = dayjs(dayjs().format('MM/DD/YYYY'), 'MM/DD/YYYY');
-        const taskDueDate = dayjs(task.dueDate, 'MM/DD/YYYY');
-    
-    
+
+    const today = dayjs(dayjs().format('MM/DD/YYYY'), 'MM/DD/YYYY');
+    const taskDueDate = dayjs(task.dueDate, 'MM/DD/YYYY');
+
+
     if (today.isAfter(taskDueDate)) taskCard.addClass('bg-danger');
     if (today.isSame(taskDueDate)) taskCard.addClass('bg-warning');
-    
-    cardBody.append(cardDescription, cardDueDate, cardDeleteBtn);
-    taskCard.append(cardHeader, cardBody);
+
+
     $('#todo-cards').append(taskCard);
     return taskCard;
 }
@@ -48,9 +42,9 @@ function renderTaskList() {
     for (let task of taskList) {
         createTaskCard(task);
     }
-    $( function() {
-        $( "#todo-cards" ).draggable();
-    } );
+    $(function () {
+        $("#todo-cards").draggable();
+    });
 }
 
 // Todo: create a function to handle adding a new task
@@ -59,9 +53,10 @@ function handleAddTask() {
         taskList = [];
     }
     task = {
-        title: taskTitleInput.val(),
-        date: taskDescriptionInput.val(),
-        description: taskDueDateInput.val().trim(),
+        title: $('#title').val().trim(),
+        date: $('#dueDate').val().trim(),
+        description: $('#description').val().trim(),
+        id: nextId
     }
     taskList.push(task);
 
@@ -96,5 +91,9 @@ $(document).ready(function () {
 
 
 
-    $('.swim-lanes').droppable();
+    $('.lane').droppable({
+        drop: function( event, ui ) {
+            $(this).addClass( "ui-state-highlight" )
+        }
+    });
 });
