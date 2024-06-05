@@ -51,6 +51,9 @@ function renderTaskList() {
     for (let task of taskList) {
         createTaskCard(task);
     }
+    $( function() {
+        $( "#todo-cards" ).draggable();
+    } );
 }
 
 // Todo: create a function to handle adding a new task
@@ -96,8 +99,5 @@ $(document).ready(function () {
 
 
 
-    $('.lane').droppable({
-        accept: '.draggable',
-        drop: handleDrop,
-    });
+    $('.swim-lanes').droppable();
 });
