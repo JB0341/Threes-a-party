@@ -16,3 +16,9 @@ body {
   cursor: grab;
 }
 
+.card {
+  left: 0 !important; 
+  top: 0 !important;
+  position: static !important;
+  z-index: 1 !important;
+}

@@ -22,7 +22,7 @@
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button id="btn" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
     </div>
     <!-- Todo: Create a modal with a form to add tasks -->
     <div class='modal fade' id='formModal' tabindex='-1' aria-labelledby='formModalLabel' aria-hidden='true'>
@@ -31,26 +31,27 @@
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="formModalLabel">Add Task</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            <form id="task-form">
-              <div class="mb-3">
-                <label for="title" class="col-form-label">Title:</label>
-                <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="dueDate" class="col-form-label">Due Date:</label>
-                <input type="text" class="forom-control" id="dueDate" name="DueDate">
-              </div>
-              <div class="mb-3">
-                <label for="description" class="col-form-label">Description:</label>
-                <input type="text" class="form-control" id="description" name="description">
-              </div>
-              <div class="modal-footer text-center">
-                <button type="button" class="btn btn-primary">Add Task</button>
-              </div>
           </div>
+          <form id="add-task">
+            <div class="mb-3">
+              <label for="title" class="col-form-label">Title:</label>
+              <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="mb-3">
+              <label for="dueDate" class="col-form-label">Due Date:</label>
+              <input type="text" class="forom-control" id="dueDate" name="dueDate">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" id="description" name="description">
+            </div>
+            <div class="modal-footer text-center">
+              <button id="add" type="submit" class="btn btn-primary">Add Task</button>
+            </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <div class="row swim-lanes text-center justify-content-between">
     <div class="col-12 col-lg-4 d-flex">
